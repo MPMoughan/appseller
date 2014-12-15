@@ -1,2 +1,25 @@
 <h1>Access#login</h1>
 <p>Find me in app/views/access/login.html.erb</p>
+
+
+<h2>THE ROUTING NEEDS TO CHANGE</h2>
+
+
+<h1>Login</h1>
+
+<p>
+<%= form_tag(login_path) do %>
+
+
+  <%= label_tag(:username)%>
+  <%= text_field_tag(:username, params[:username], autofocus: true)%>
+<!-- params[:username] - default value, can keep value if user refreshes the page -->
+
+  <%= label_tag(:password)%>
+  <%= password_field_tag(:password)%>
+
+  <%= submit_tag("Log in", class: "btn btn-primary") %>
+
+<% end %>
+</p>
+<%= link_to "Don't have an account? Sign up here", create_user_path%>
