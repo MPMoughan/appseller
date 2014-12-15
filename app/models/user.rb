@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
   has_secure_password
 
-  has_many :items
-  has_many :transactions, :through => :items
+  has_many :items_users
+  has_many :items, :through => :items_users
 
   validates :username,
     uniqueness: true,
