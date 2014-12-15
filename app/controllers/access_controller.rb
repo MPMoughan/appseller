@@ -8,7 +8,7 @@ class AccessController < ApplicationController
   end
 
   def create
-    @user = User.create(user_params)
+    @user = User.new(user_params)
     if(@user.save)
       # UserMailer.signup_confirmation(@user, root_url).deliver
       # .deliver - method that action mailer and rails knows
@@ -18,6 +18,7 @@ class AccessController < ApplicationController
       redirect_to home_path(@user.id)
     else
       render :login
+
     end
 
   end
@@ -110,7 +111,7 @@ class AccessController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :password, :location, :password_digest)
+    params.require(:user).permit(:username, :email, :password, :location, :password_confirmation)
   end
 
 end
