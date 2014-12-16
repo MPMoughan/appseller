@@ -1,2 +1,20 @@
 <h1>Sales#new</h1>
 <p>Find me in app/views/sales/new.html.erb</p>
+
+
+<%= form_tag(user_sales_path) do %>
+
+  <%= label_tag :name %>
+  <%= text_field_tag :name %>
+  <%= label_tag :description %>
+  <%= text_field_tag :description %>
+  <%= label_tag :sku %>
+  <%= text_field_tag :sku %>
+  <%= label_tag :price %>
+  <%= text_field_tag :price %>
+
+    <div><%= submit_tag 'Save' %></div>
+<% end %>
+
+
+
