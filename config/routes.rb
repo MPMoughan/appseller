@@ -1,5 +1,31 @@
  Rails.application.routes.draw do
 
+  # get 'sales/index'
+
+  # get 'sales/create'
+
+  # get 'sales/show'
+
+  # get 'sales/new'
+
+  # get 'sales/edit'
+
+  # get 'sales/destroy'
+
+  get 'items/index'
+
+  get 'items/create'
+
+  get 'items/show'
+
+  get 'items/new'
+
+  get 'items/edit'
+
+  get 'items/destroy'
+
+  get 'users/index'
+
   # root route
   root 'access#index'
 
@@ -34,7 +60,7 @@
 
   resources :users do
     resources :items
-    resources :transactions
+    resources :sales
   end
 
   resources :categories
