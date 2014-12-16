@@ -5,6 +5,7 @@ class CreateItems < ActiveRecord::Migration
       t.integer :sku
       t.string :description
       t.integer :price
+      t.references :sale
 
       t.timestamps
     end

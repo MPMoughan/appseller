@@ -4,18 +4,25 @@ class SalesController < ApplicationController
     @sales = current_user.sales;
   end
 
+  def new
+    @sale = Sale.new
+  end
+
   def create
     @sale = Sale.new
-    @item = Item.new(item_params)
+    @item = Item.create(
+      :name => params[:name],
+      :description => params[:description],
+      :price => params[:price],
+      :sku => params[:sku]
+    )
     @sale.seller = current_user
     @sale.items << @item
+    @sale.save
   end
 
   def show
-  end
-
-  def new
-    @sale = Sale.new
+    @sale = Sale.all
   end
 
   def edit
@@ -27,6 +34,6 @@ class SalesController < ApplicationController
   private
 
   def item_params
-    params.permit(:items).permit(:name, :description, :price, :sku)
+
   end
 end

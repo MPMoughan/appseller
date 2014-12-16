@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20141215220228) do
     t.integer  "sku"
     t.string   "description"
     t.integer  "price"
+    t.integer  "sale_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
