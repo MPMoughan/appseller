@@ -26,6 +26,28 @@
 
   get 'users/index'
 
+  # root route
+  root 'access#index'
+
+  # get request to access sign-up page
+  get 'signup', to: 'access#new', as: 'create_user'
+
+  # post request to sign-up form
+  post 'signup', to: 'access#create'
+
+  # get request to login page
+  get 'access/login', to: 'access#login', as: 'login'
+
+  # post request for signing in
+  post 'access/login', to: 'access#attempt_login'
+
+  # get request for logging out
+  get 'access/logout', to: 'access#logout', as: 'logout'
+
+  # get request to user home page, directed here after logging in
+  get 'users/index', to: 'users#index', as: "home"
+
+  # get request for show page - "user's profile page"
   get 'users/show'
 
   get 'users/new'
@@ -35,20 +57,6 @@
   get 'users/update'
 
   get 'users/destroy'
-
-  root 'access#index'
-
-  get 'access/new'
-
-  get 'signup', to: 'access#create', as: 'create_user'
-
-  post 'signup', to: 'access#create'
-
-  get 'access/login', to: 'access#login', as: 'login'
-
-  post 'access/login', to: 'access#login'
-
-  get 'access/logout'
 
   resources :users do
     resources :items
@@ -62,11 +70,17 @@ end
 
 #                Prefix Verb   URI Pattern                                     Controller#Action
 #                  root GET    /                                               access#index
-#            access_new GET    /access/new(.:format)                           access#new
-#           create_user GET    /signup(.:format)                               access#create
+#           create_user GET    /signup(.:format)                               access#new
 #                signup POST   /signup(.:format)                               access#create
-#          access_login GET    /access/login(.:format)                         access#login
-#         access_logout GET    /access/logout(.:format)                        access#logout
+#                 login GET    /access/login(.:format)                         access#login
+#          access_login POST   /access/login(.:format)                         access#attempt_login
+#                logout GET    /access/logout(.:format)                        access#logout
+#                  home GET    /users/index(.:format)                          users#index
+#            users_show GET    /users/show(.:format)                           users#show
+#             users_new GET    /users/new(.:format)                            users#new
+#            users_edit GET    /users/edit(.:format)                           users#edit
+#          users_update GET    /users/update(.:format)                         users#update
+#         users_destroy GET    /users/destroy(.:format)                        users#destroy
 #            user_items GET    /users/:user_id/items(.:format)                 items#index
 #                       POST   /users/:user_id/items(.:format)                 items#create
 #         new_user_item GET    /users/:user_id/items/new(.:format)             items#new
