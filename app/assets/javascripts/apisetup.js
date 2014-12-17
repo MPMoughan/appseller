@@ -8,12 +8,9 @@ $(document).ready(function(){
 });
 
 
-
-
-
-$(document).on("click", "#additem", function(){
-  var brand = $("#brand").val();
-  var url = "http://api.remix.bestbuy.com/v1/products(manufacturer=" + brand + "&salePrice%3E400)?format=json&show=name,salePrice,image&apiKey=t72cd4zb4ahwvx49ad3xqasu";
+$(document).on("click", "#searchItems", function(){
+  var manufacturer = $("#manufacturer").val();
+  var url = "http://api.remix.bestbuy.com/v1/products(manufacturer=" + manufacturer + "&salePrice%3E10)?format=json&show=name,salePrice,image&apiKey=t72cd4zb4ahwvx49ad3xqasu";
   // "http://api.remix.bestbuy.com/v1/products";
   // url += "(manufacturer=samsung&salePrice%3E100)";
   // url += "?format=json&show=name,salePrice,image&apiKey=t72cd4zb4ahwvx49ad3xqasu";

@@ -1,24 +1,29 @@
-<h1>Users#show</h1>
+<div class="wrapper">
+
 <p>Find me in app/views/users/show.html.erb</p>
 
-<h2>THE USER'S PROFILE PAGE</h2>
+<h1>Amazing API search feature</h1>
 
-<input id="brand"  placeholder="sony">
+<div class="button">
+<input id="manufacturer"  placeholder="Vizio, Sony, etc.." autofocus="true">
 
-<a href="#index" id="additem" class="btn btn-success">All the items</a>
+<a href="#index" id="searchItems" class="btn btn-success">Search by Manufacturer</a>
+</div>
 
 <div id="content">
 
 </div>
 
+<!-- http://api.remix.bestbuy.com/v1/categories(name=Sony%20DSLR%20Camera*)?format=json&apiKey=t72cd4zb4ahwvx49ad3xqasu&show=path -->
 
 <script id="get-data" type="x-handlebars-template" >
 
 {{#each Data}}
-<p>Name: {{name}}</p>
+<h4>Description:</h4> {{name}}
 <p>Price: {{salePrice}}</p>
 <img src="{{image}}">
 {{/each}}
 
 </script>
 
+</div>
