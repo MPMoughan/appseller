@@ -1,8 +1,10 @@
-var testing = function(searchTerm, callback){
+// var apiCall = function(searchTerm, callback){
 
-  var url = "http://api.remix.bestbuy.com/v1/products";
-  url += "(manufacturer=samsung&salePrice%3E100)";
-  url += "?format=json&show=name,salePrice,image&apiKey=t72cd4zb4ahwvx49ad3xqasu"
+$(document).on("click", "#additem", function(){
+  var url = "http://api.remix.bestbuy.com/v1/products(manufacturer=samsung&salePrice%3E100)?format=json&show=name,salePrice,image&apiKey=t72cd4zb4ahwvx49ad3xqasu"
+  // "http://api.remix.bestbuy.com/v1/products";
+  // url += "(manufacturer=samsung&salePrice%3E100)";
+  // url += "?format=json&show=name,salePrice,image&apiKey=t72cd4zb4ahwvx49ad3xqasu";
   $.ajax({
     url: url,
     type: "GET",
@@ -10,7 +12,9 @@ var testing = function(searchTerm, callback){
     cache: true,
     success: function(data) {
       console.log("data", data);
-      callback(data);
+      $.each(data.products.name);
+
+      // callback(data);
       // var html = productShowTemplate({productData: data});
       // $("#content").html(html);
     },
@@ -18,9 +22,11 @@ var testing = function(searchTerm, callback){
       alert("Something went wrong here...");
     }
   });
-};
+});
 
 
-// testing("tvs", function (tvData) {
+
+
+// apiCall("tvs", function (tvData) {
 //
 //})
