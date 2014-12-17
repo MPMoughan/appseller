@@ -1,2 +1,37 @@
 <h1>Sales#show</h1>
-<p>Find me in app/views/sales/show.html.erb</p>
+
+
+
+
+
+<div class="container">
+<h4>Here is your sale</h4>
+   <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>sku #</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @sale.items.each do |item| %>
+          <tr>
+            <td ><%= item.name %></td>
+            <td ><%= item.description %></td>
+            <td><%= item.sku %></td>
+            <td><%= item.price %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+    <div>
+     <%= button_to "Buy This Item", {
+            :action => :update,
+            :controller => :sales
+            },
+            :method => :patch %>
+    </div>
+</div>
