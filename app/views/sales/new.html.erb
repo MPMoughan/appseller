@@ -2,19 +2,25 @@
 <p>Find me in app/views/sales/new.html.erb</p>
 
 
-<%= form_tag(user_sales_path) do %>
+<%= form_for(@item, url: user_sales_path) do |f| %>
 
-  <%= label_tag :name %>
-  <%= text_field_tag :name %>
-  <%= label_tag :description %>
-  <%= text_field_tag :description %>
-  <%= label_tag :sku %>
-  <%= text_field_tag :sku %>
-  <%= label_tag :price %>
-  <%= text_field_tag :price %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <%= f.label :sku %>
+  <%= f.text_field :sku %>
+  <%= f.label :price %>
+  <%= f.text_field :price %>
 
-    <div><%= submit_tag 'Save' %></div>
+
+  <div class="field">
+    <%= f.label :file %><br>
+    <%= f.uploadcare_field :file %>
+  </div>
+
+
+  <div><%= submit_tag 'Save' %></div>
 <% end %>
-
 
 

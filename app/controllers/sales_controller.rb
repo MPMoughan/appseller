@@ -8,6 +8,8 @@ class SalesController < ApplicationController
 
   def new
     @sale = Sale.new
+    @user = current_user
+    @item = Item.new
   end
 
   def create
@@ -17,7 +19,8 @@ class SalesController < ApplicationController
       :name => params[:name],
       :description => params[:description],
       :price => params[:price],
-      :sku => params[:sku]
+      :sku => params[:sku],
+      :file => params[:file]
     )
     @sale.seller = current_user
     @sale.items << @item
