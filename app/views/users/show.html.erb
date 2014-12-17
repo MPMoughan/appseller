@@ -2,3 +2,23 @@
 <p>Find me in app/views/users/show.html.erb</p>
 
 <h2>THE USER'S PROFILE PAGE</h2>
+
+<input id="brand"  placeholder="sony">
+
+<a href="#index" id="additem" class="btn btn-success">All the items</a>
+
+<div id="content">
+
+</div>
+
+
+<script id="get-data" type="x-handlebars-template" >
+
+{{#each Data}}
+<p>Name: {{name}}</p>
+<p>Price: {{salePrice}}</p>
+<img src="{{image}}">
+{{/each}}
+
+</script>
+
