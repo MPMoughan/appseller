@@ -12,10 +12,6 @@
 
   # get 'sales/destroy'
 
-  get 'payment', to: 'application#braintree', as: 'payment'
-
-  post "/create_transaction", to: 'application#braintree'
-
   get 'items/index'
 
   get 'items/create'

@@ -7,11 +7,4 @@ class ApplicationController < ActionController::Base
     return unless session[:user_id]
     @current_user ||= User.find(session[:user_id])
   end
-
-
-  def braintree
-
-
-  end
-
 end

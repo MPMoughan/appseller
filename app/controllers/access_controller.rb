@@ -3,6 +3,10 @@ class AccessController < ApplicationController
   # before_action :confirm_logged_in, except: [:new, :create, :attempt_login, :login, :logout, :send_reset, :forgot_password, :reset_password, :update_password]
   # before_action :prevent_login_signup, only: [:login, :new]
 
+  def index
+    @user = User.new
+  end
+
   def new
     @user = User.new
   end
