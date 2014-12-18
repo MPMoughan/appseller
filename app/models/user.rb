@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
   has_secure_password
 
-  has_many :purchases, :foreign_key => 'buyer_id'
   has_many :sales, :foreign_key => 'seller_id'
 
   validates :username,
