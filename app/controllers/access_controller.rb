@@ -18,8 +18,8 @@ class AccessController < ApplicationController
       # .deliver - method that action mailer and rails knows
       session[:user_id] = @user.id
       # session[:is_admin] = @user.is_admin
-      flash[:success] = "You have created an account!"
-      redirect_to home_path(@user.id)
+      flash[:success] = "Welcome, you have created an account!"
+      redirect_to user_sales_path(@user.id)
     else
       render :login
 
@@ -63,7 +63,7 @@ class AccessController < ApplicationController
     session[:user_id] = nil
 
     flash[:notice] = "Logged out"
-    redirect_to login_path
+    redirect_to ('/')
   end
 
 
