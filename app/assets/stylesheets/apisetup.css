@@ -13,10 +13,11 @@ h1 {
   font-weight: bold;
   padding-top: 15px;
   text-align: center;
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 );
 }
 
 #spacer {
   padding-bottom: 20px;
-  border:1px solid black;
+  border:2px solid black;
+  border-radius: 25px;
+  margin-bottom: 5px;
 }
