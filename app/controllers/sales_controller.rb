@@ -19,7 +19,7 @@ class SalesController < ApplicationController
     @sale.seller = current_user
     @sale.items << @item
     @sale.save
-    redirect_to(user_sales_path)
+    redirect_to user_sales_path
   end
 
   def show
