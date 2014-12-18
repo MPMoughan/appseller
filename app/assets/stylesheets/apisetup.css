@@ -9,6 +9,14 @@ h1 {
 
 #content {
   font-weight: bold;
-  color: blue;
+  color: #00BFFF;
+  font-weight: bold;
+  padding-top: 15px;
   text-align: center;
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 );
+}
+
+#spacer {
+  padding-bottom: 20px;
+  border:1px solid black;
 }
