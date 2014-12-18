@@ -1,26 +1,37 @@
-<h1>Sales#new</h1>
-<p>Find me in app/views/sales/new.html.erb</p>
-
-
+<div><h2>Sell your item on AppSeller!</h2></div>
+<br>
+<hr>
+<div class="container">
 <%= form_for(@item, url: user_sales_path) do |f| %>
 
+  <div class="field">
   <%= f.label :name %>
   <%= f.text_field :name %>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-  <%= f.label :sku %>
-  <%= f.text_field :sku %>
-  <%= f.label :price %>
-  <%= f.text_field :price %>
-
+  </div>
 
   <div class="field">
-    <%= f.label :file %><br>
-    <%= f.uploadcare_field :file %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  </div>
+
+  <div class="field">
+  <%= f.label :sku %>
+  <%= f.text_field :sku %>
+  </div>
+
+  <div class="field">
+  <%= f.label :price %>
+  <%= f.text_field :price %>
+  </div>
+
+  <div class="field">
+  <%= f.label :file %><br>
+  <%= f.uploadcare_field :file %>
   </div>
 
 
   <div><%= submit_tag 'Save' %></div>
 <% end %>
 
+</div>
 

@@ -15,13 +15,7 @@ class SalesController < ApplicationController
   def create
     # creation of sale instance
     @sale = Sale.new
-    @item = Item.create(
-      :name => params[:name],
-      :description => params[:description],
-      :price => params[:price],
-      :sku => params[:sku],
-      :file => params[:file]
-    )
+    @item = Item.create(item_params)
     @sale.seller = current_user
     @sale.items << @item
     @sale.save
@@ -38,7 +32,7 @@ class SalesController < ApplicationController
 
   def update
     # puts "update"
-    if session[:user_id] != [:seller_id]
+    if session[:user_id] != params[:seller_id]
       @user = current_user
       sale = Sale.find(params[:id])
       sale.buyer = @user
@@ -58,6 +52,6 @@ class SalesController < ApplicationController
   private
 
   def item_params
-
+    params.require(:item).permit(:name, :description, :price, :sku, :file)
   end
 end

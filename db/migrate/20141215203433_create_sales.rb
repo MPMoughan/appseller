@@ -6,5 +6,6 @@ class CreateSales < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :purchases, [:seller_id, :buyer_id], unique: true
   end
 end

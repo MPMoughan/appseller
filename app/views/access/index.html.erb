@@ -1,6 +1,78 @@
-<div>
-<h1>Welcome to the login page!</h1>
+<div class="landing">
+  <div class="container">
+    <div class="jumbotron">
+    <h1>Welcome to AppSeller</h1>
+    <a href="#" class="btn btn-lg btn-success" data-target="#login-modal" data-toggle="modal" >Login</a>
+    <a href="#" class="btn btn-lg btn-warning" data-target="#create-modal" data-toggle="modal" >Sign Up</a>
+    </div>
+  </div>
 </div>
 
-<p><%= link_to("Sign-up", create_user_path) %></p>
-<p><%= link_to("Have an account already? Login here", login_path) %></p>
+
+<%= form_tag(login_path) do %>
+<div id="login-modal" class="modal fade">
+  <div class="modal-dialog login">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Login to Zombie Survival Guide</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <%= label_tag(:username, nil,class: "control-label") %>
+          <%= text_field_tag :username, params[:username], class: "form-control" %>
+
+        </div>
+        <div class="form-group">
+
+          <%= label_tag(:password,nil, class: "control-label") %>
+          <%= password_field_tag(:password, nil, class: "form-control") %>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <a class="btn" data-dismiss="modal">Close</a>
+
+        <%= submit_tag("Log In", class: "btn") %>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<% end %>
+
+<!-- Modal -->
+<%= form_for(@user, url: create_user_path) do |f| %>
+<div id="create-modal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Signup for Zombie Survival Guide</h4>
+
+
+
+
+      </div>
+      <div id="email" class="modal-body">
+        <div class="form-group">
+          <%= f.label(:email, class: "control-label") %>
+          <%= f.text_field :email, class: "form-control" %>
+
+        </div>
+        <div class="form-group">
+
+          <%= f.label(:password, class: "control-label") %>
+          <%= f.password_field(:password, class: "form-control") %>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <a class="btn" data-dismiss="modal">Close</a>
+
+        <%= f.submit("Sign Up", class: "btn btn-primary") %>
+      </div>
+
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<% end %>
