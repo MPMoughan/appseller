@@ -53,7 +53,7 @@ class AccessController < ApplicationController
       session[:user_id] = authorized_user.id
       # session[:is_admin] = authorized_user.is_admin
       flash[:success] = "You are now logged in!"
-      redirect_to home_path(authorized_user.id)
+      redirect_to user_sales_path(authorized_user.id)
     end
 
   end
