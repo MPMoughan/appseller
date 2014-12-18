@@ -1,6 +1,5 @@
 <div class="wrapper">
 
-<p>Find me in app/views/users/show.html.erb</p>
 
 <h1>Amazing API search feature</h1>
 
@@ -19,9 +18,12 @@
 <script id="get-data" type="x-handlebars-template" >
 
 {{#each Data}}
+<div id="spacer">
 <h4>Description:</h4> {{name}}
-<h4>Price: {{salePrice}}</h4>
+<h4>Price: ${{salePrice}}</h4>
+
 <img src="{{image}}">
+</div>
 {{/each}}
 
 </script>
